@@ -6,12 +6,12 @@
 
 #SkriptDrugs Version 0.2 Alpha
 #By GrassyMoss
-#Note: FernWeed is used as a variable to ensure that you cannot get high off of all ferns. Only the ferns that are actually weed. The same type of variables are applied to every other drug.
+#Note: Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
 #Weed = Super Ferns --- Shrooms = Magic Mushrooms --- Cocaine = Power Powder
 #Each drug is given some kind of special formatting or color in the name to ensure that is actually a drug, and to separate it from products re-named by players using anvils.
 #If you modify the code that is intended for distribution through Cobalt Network, please leave your developer name at the sections you add, remove, or modify.
 #To do: Add overdose consequences, add more drug variety, test for bugs, add /drugs command with info.
-#Possibly combine all drugs into one "rightclick" event?
+#Possibly combine all drugs into one "rightclick" event? <--- Explore benefits of this
 
 #--- Weed / Cannabis / Marijuana
 on break of fern:
@@ -74,4 +74,9 @@ on rightclick:
 		
 		
 #--- Command
-command /drugs [<text=""] 
+command /drugs [<text="">] [<text="">] [<item="">]:
+	description: Main command associated with the drugs plugin. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
+	permission message: &8[&aDrugs&8]&r You &cdo not&r have permission to use that drug command. View &a/drugs&r for help.
+	aliases: /drugs
+	trigger:
+		
