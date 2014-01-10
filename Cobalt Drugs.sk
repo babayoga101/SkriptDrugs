@@ -76,7 +76,21 @@ on rightclick:
 #--- Command
 command /drugs [<text="">] [<text="">] [<item="">]:
 	description: Main command associated with the drugs plugin. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
-	permission message: &8[&aDrugs&8]&r You &cdo not&r have permission to use that drug command. View &a/drugs&r for help.
+	permission message: &8[&aDrugs&8]&r You&c do not&r have permission to use that drug command. View &a/drugs&r for help.
 	aliases: /drugs
 	trigger:
-		
+		arg 1 is "" or "help":
+			message "&a-&8-&a-&8-&a-&8[&aDrugs&8]&8-&a-&8-&a-&8-"
+			message "  "
+			message "&7 Topic:&r &lDrugs Help&r"
+			message "&7 Link:&r   &b> > >&n http://wiki.cobalt-mc.com/drugs &r&b< < <"
+			message "  "
+			message "&7&oClick on the blue link above to view the topic."
+			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
+		arg 1 is "list" or "drugs":
+			message "&a-&8-&a-&8-&a-&8[&aDrugs&8]&8-&a-&8-&a-&8-"
+			message "&7List of Drugs:"
+			message " - &2Super Fern&r [Break Ferns]&r"
+			message " - &cMagic Mushrooms&r [Break Mushrooms]"
+			message " - &lPower Powder&r [Break Sugar Cane] "
+			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
