@@ -6,6 +6,7 @@
 
 #SkriptDrugs Version 0.2 Alpha
 #By GrassyMoss
+
 #Note: Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
 #Weed = Super Ferns --- Shrooms = Magic Mushrooms --- Cocaine = Power Powder
 #Each drug is given some kind of special formatting or color in the name to ensure that is actually a drug, and to separate it from products re-named by players using anvils.
@@ -17,7 +18,7 @@
 on break of fern:
 	set {FernWeed} to fern named "&2Weed"
 	chance of 8%
-	give player {FernWeed} #<--- Do you end up with fern AND weed? If so, please add 'cancel event' or similar
+	give player {FernWeed}
 	message "&8[&aDrugs&8]&r You found some &2Super Ferns!&r!"
 	
 on rightclick:
@@ -72,7 +73,12 @@ on rightclick:
 			apply jump boost 3 to the player for 60 seconds
 		remove {Cocaine} from the player
 		
-		
+
+#--- Overdose
+
+#--- Moonshine
+set {ShineDrunk.%player%} to false
+# [Unused Code] set {Moonshine} to 
 #--- Command
 command /drugs [<text="">] [<text="">] [<item="">]:
 	description: Main command associated with the drugs plugin. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
@@ -83,7 +89,7 @@ command /drugs [<text="">] [<text="">] [<item="">]:
 			message "&a-&8-&a-&8-&a-&8[&aDrugs&8]&8-&a-&8-&a-&8-"
 			message "  "
 			message "&7 Topic:&r &lDrugs Help&r"
-			message "&7 Link:&r   &b> > >&n http://wiki.cobalt-mc.com/drugs &r&b< < <"
+			message "&7 Link:&r   &b> > >&n http://wiki.cobalt-mc.com/drugs &r&b< < <" #Wiki link doesn't work, write wiki page soon.
 			message "  "
 			message "&7&oClick on the blue link above to view the topic."
 			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
@@ -94,3 +100,8 @@ command /drugs [<text="">] [<text="">] [<item="">]:
 			message " - &cMagic Mushrooms&r [Break Mushrooms]"
 			message " - &lPower Powder&r [Break Sugar Cane] "
 			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
+		arg 1 is "check" or "me":
+			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {WeedHigh.%player%}. High on &lPowder Powder&r: {CocaineHigh.%player%}.
+			message "High on &cMagic Mushrooms&r: {ShroomHigh.%player%}. Drunk with &6Moonshine&r: {ShineDrunk.%player%}."
+		else:
+			message "&8[&aDrugs&8]&r &4Invalid Command"
