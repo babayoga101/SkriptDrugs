@@ -1,8 +1,7 @@
 SkriptDrugs
 ===========
-By GrassyMoss
------------
-Current version: 0.3 (Alpha)
+### By GrassyMoss
+##### Current version: 0.4 (Alpha)
 
 
 Add drugs to Minecraft Servers with Skript.
@@ -12,8 +11,10 @@ Currently includes:
 - Happy Powder [Sugar]
 - Glistening Prickles [Cactus]
 - Power Crystals [Ice]
+- Moonshine [Barley + Awkward Potion]
 
 Suggestions are always welcome! File them under the "Issues" section with the tag "Suggestions".
+Find a bug? File it under the "Issues" section with the tag "Suggestions".
 
 How to install:
  - Download this repository by clicking "Download as ZIP"
