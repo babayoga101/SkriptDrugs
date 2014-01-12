@@ -1,18 +1,22 @@
 SkriptDrugs
 ===========
 By GrassyMoss
-Current version: 0.2 Alpha
+Current version: 0.3 (Alpha)
 
 
-Add drugs to Minecraft with Skript.
+Add drugs to Minecraft Servers with Skript.
 Currently includes:
-- Super Ferns
-- Magic Mushrooms
-- Power Powder
+- Super Ferns [Ferns]
+- Magic Mushrooms [Mushrooms]
+- Happy Powder [Sugar]
+- Glistening Prickles [Cactus]
+- Power Crystals [Ice]
 
-Soon to come:
-- Groovy Ice
-- Sparkle Fizz
-And more...
+Suggestions are always welcome! File them under the "Issues" section with the tag "Suggestions".
 
-Suggestions are always welcome! File 
+How to install:
+	- Download this repository by clicking "Download as ZIP"
+	- Copy the .sk file
+	- Paste it into [Folder where you keep server files]>Plugins>Skript>Scripts
+	- Type "Skript reload SkriptDrugs" into the console
+	- If no errors occur, SkriptDrugs is installed!
