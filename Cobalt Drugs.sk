@@ -16,7 +16,7 @@
 
 #--- Weed / Cannabis / Marijuana
 on break of fern:
-	set {FernWeed} to fern named "&2Weed"
+	set {FernWeed} to fern named "&2Super Ferns&r"
 	chance of 8%
 	give player {FernWeed}
 	message "&8[&aDrugs&8]&r You found some &2Super Ferns!&r!"
@@ -24,7 +24,7 @@ on break of fern:
 on rightclick:
 	player is holding {FernWeed}:
 		set {WeedHigh.%player%} to true
-		message "&8[&aDrugs&8]&r You are now high on &2Weed&r!"
+		message "&8[&aDrugs&8]&r You are now high on &2Super Ferns&r!"
 		chance of 50%:
 			apply hunger 1 to the player for 30 seconds
 			apply absorption 1 to the player for 15 seconds
@@ -56,15 +56,15 @@ on rightclick:
 		
 #--- Cocaine
 on break of sugar cane:
-	set {Cocaine} to sugar named "&lPower Powder"
+	set {Cocaine} to sugar named "&lHappy Powder&r"
 	chance of 8%
 	give player {Cocaine}
-	message "&8[&aDrugs&8]&r You found some &lPower Powder&r!"
+	message "&8[&aDrugs&8]&r You found some &lHappy Powder&r!"
 	
 on rightclick:
 	player is holding {Cocaine}:
 		set {CocaineHigh.%player%} to true
-		message "&8[&aDrugs&8]&r You are now high on &lPower Powder&r!"
+		message "&8[&aDrugs&8]&r You are now high on &lHappy Powder&r!"
 		chance of 50%:
 			apply confusion 3 to the player for 40 seconds
 			apply speed 3 to the player for 50 seconds
@@ -72,17 +72,49 @@ on rightclick:
 			apply mining fatigue 2 to the player for 70 seconds
 			apply jump boost 3 to the player for 60 seconds
 		remove {Cocaine} from the player
-		
 
-#--- Overdose
+#--- Meth
+on break of ice:
+	set {Meth} to ice named "&bPower Crystals&r"
+	chance of 8%
+	give player {Meth}
+	message "&8[&aDrugs&8]&r You found some &bPower Crystals&r!"
+	
+on rightclick:
+	player is holding {Meth}:
+		set {MethHigh.%player%} to true
+		message "&8[&aDrugs&8]&r You are now high on &bPower Crystals&r!"
+	chance of 50%:
+		apply speed 2 to the player for 80 seconds
+		apply instant damage 1 to the player for 1 second
+	chance of 50%:
+		
+#--- Peyote
+on break of cactus:
+	set {Peyote} to cactus named "&eGlistening Prickles&r"
+	chance of 8%
+	give player {Peyote}
+	message "&8[&aDrugs&8]&r You found some &eGlistening Prickles&r"
+	
+on rightclick:
+	player is holding {Peyote}:
+		set {PeyoteHigh.%player%} to true
+		message "&8[&aDrugs&8]&r You are now high on &eGlistening Prickles&r"
+		chance of 50%:
+			apply blindness 1 to the player for 45 seconds
+			apply haste 2 to the player for 45 seconds
+		chance of 50%:
+			apply nausea 1 to the player for 40 seconds
+			apply resistance 2 to the player for 25 seconds
+		remove {Peyote} from the player
 
 #--- Moonshine
 set {ShineDrunk.%player%} to false
-# [Unused Code] set {Moonshine} to 
+# [Unused Code] set {Moonshine} to
 #--- Command
 command /drugs [<text="">] [<text="">] [<item="">]:
 	description: Main command associated with the drugs plugin. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
-	permission message: &8[&aDrugs&8]&r You&c do not&r have permission to use that drug command. View &a/drugs&r for help.
+	permission message: &8[&aDrugs&8]&r You&4 do not&r have permission to use that drug command. View &a/drugs&r for help.
 	aliases: /drugs
 	trigger:
 		arg 1 is "" or "help":
@@ -104,4 +136,4 @@ command /drugs [<text="">] [<text="">] [<item="">]:
 			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {WeedHigh.%player%}. High on &lPowder Powder&r: {CocaineHigh.%player%}.
 			message "High on &cMagic Mushrooms&r: {ShroomHigh.%player%}. Drunk with &6Moonshine&r: {ShineDrunk.%player%}."
 		else:
-			message "&8[&aDrugs&8]&r &4Invalid Command"
+			message "&8[&aDrugs&8]&r &4Invalid Command&r"
