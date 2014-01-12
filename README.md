@@ -1,7 +1,7 @@
 SkriptDrugs
 ===========
-### By GrassyMoss
-##### Current version: 0.4 (Alpha)
+#### By GrassyMoss
+###### Current version: 0.4 (Alpha)
 
 
 Add drugs to Minecraft Servers with Skript.

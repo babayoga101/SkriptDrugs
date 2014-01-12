@@ -4,7 +4,7 @@
 #   ALPHA VERSIONS ARE NOT FOR USAGE OR DISTRIBUTION!
 #-----------------#
 
-#SkriptDrugs Version 0.3 Alpha
+#SkriptDrugs Version 0.4 Alpha
 #By GrassyMoss
 
 #Note: Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
@@ -32,7 +32,8 @@ on rightclick:
 			apply hunger 4 to the player for 8 seconds
 			apply regeneration 1 to the player for 2 seconds
 		remove {FernWeed} from the player
-
+		wait 1 tick
+		set {WeedHigh.%player%} to false
 		
 #--- Magic Mushrooms / Shrooms
 on break of mushroom:
@@ -52,6 +53,8 @@ on rightclick:
 			apply poison 1 to the player for 15 seconds
 			apply invisibility 1 to the player for 30 seconds
 		remove {Shroom} from the player
+		wait 1 tick
+		set {ShroomHigh.%player%} to false
 		
 		
 #--- Cocaine
@@ -72,6 +75,8 @@ on rightclick:
 			apply mining fatigue 2 to the player for 70 seconds
 			apply jump boost 3 to the player for 60 seconds
 		remove {Cocaine} from the player
+		wait 1 tick
+		set {CocaineHigh.%player%} to false
 
 #--- Meth
 on break of ice:
@@ -91,6 +96,8 @@ on rightclick:
 			apply saturation 3 to the player for 45 seconds
 			apply wither 1 to the player for 8 seconds
 		remove {Meth} from the player
+		wait 1 tick
+		set {MethHigh.%player%} to false
 
 #--- Peyote
 on break of cactus:
@@ -110,6 +117,8 @@ on rightclick:
 			apply nausea 1 to the player for 40 seconds
 			apply resistance 2 to the player for 25 seconds
 		remove {Peyote} from the player
+		wait 1 tick
+		set {PeyoteHigh.%player%} to false
 
 #--- Moonshine
 on break of wheat:
@@ -138,38 +147,40 @@ on consume:
 			apply weakness 2 to the player for 50 seconds
 			apply fire resistance to the player for 50 seconds
 		remove {Moonshine} from the player
+		wait 1 tick
+		set {Drunk.%player%} to false
 
-#--- Overdose
-on click:
-	{WeedHigh.%player%} is true:
-		{CocaineHigh.%player%} is true:
-			{ShroomHigh.%player%} is true:
-				{MethHigh.%player%} is true:
-					{PeyoteHigh.%player%} is true:
-						{Drunk.%player%} is true:
-							chance of 60%
-							message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
-							kill the player
-						else:
-							chance of 50%
-							message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
-							kill the player
-					else:
-						chance of 40%
-						message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
-						kill the player
-				else:
-					chance of 30%
-					message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
-					kill the player
-			else:
-				chance of 20%
-				message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
-				kill the player
-		else:
-			chance of 10%
-			message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
-			kill the player
+#--- Overdose <--- Doesn't work
+#on click:
+#	{WeedHigh.%player%} is true:
+#		{CocaineHigh.%player%} is true:
+#			{ShroomHigh.%player%} is true:
+#				{MethHigh.%player%} is true:
+#					{PeyoteHigh.%player%} is true:
+#						{Drunk.%player%} is true:
+#							chance of 60%
+#							message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
+#							kill the player
+#						else:
+#							chance of 50%
+#							message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
+#							kill the player
+#					else:
+#						chance of 40%
+#						message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
+#						kill the player
+#				else:
+#					chance of 30%
+#					message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
+#					kill the player
+#			else:
+#				chance of 20%
+#				message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
+#				kill the player
+#		else:
+#			chance of 10%
+#			message "&8[&aDrugs&8]&r You overdosed on drugs and died!"
+#			kill the player
 
 #--- Command
 command /drugs [<text="">] [<text="">] [<item>]:
@@ -198,5 +209,5 @@ command /drugs [<text="">] [<text="">] [<item>]:
 			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {WeedHigh.%player%}. High on &lHappy Powder&r: {CocaineHigh.%player%}."
 			message "High on &cMagic Mushrooms&r: {ShroomHigh.%player%}. Drunk with &9Moonshine&r: {ShineDrunk.%player%}."
 			message "High on &bPower Crystals&r: {MethHigh.%player%}."
-		else:
-			message "&8[&aDrugs&8]&r &4Invalid Command&r"
+#		else:
+#			message "&8[&aDrugs&8]&r &4Invalid Command&r"
