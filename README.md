@@ -14,10 +14,11 @@ Currently includes:
 - Moonshine [Barley + Awkward Potion]
 
 Suggestions are always welcome! File them under the "Issues" section with the tag "Suggestions".
-Find a bug? File it under the "Issues" section with the tag "Suggestions".
+Find a bug? File it under the "Issues" section with the tag "Bugs".
 
 How to install:
  - Download this repository by clicking "Download as ZIP"
+ - Extract the .ZIP
  - Copy the .sk file
  - Paste it into:
 	[Folder where you keep server files]>Plugins>Skript>Scripts

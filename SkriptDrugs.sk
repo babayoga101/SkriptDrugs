@@ -8,11 +8,17 @@
 #By GrassyMoss
 
 #Note: Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
-#Weed = Super Ferns --- Shrooms = Magic Mushrooms --- Cocaine = Power Powder
+
+#List of Drugs:
+#Weed = Super Ferns
+#Shrooms = Magic Mushrooms
+#Cocaine = Power Powder
+#Meth = Power Crystals
+#Peyote = Glistening Prickles
+#Moonshine = Moonshine
+
 #Each drug is given some kind of special formatting or color in the name to ensure that is actually a drug, and to separate it from products re-named by players using anvils.
-#If you modify the code that is intended for distribution through Cobalt Network, please leave your developer name at the sections you add, remove, or modify.
-#To do: Add overdose consequences, add more drug variety, test for bugs, add /drugs command with info.
-#Possibly combine all drugs into one "rightclick" event? <--- Explore benefits of this
+
 
 #--- Weed / Cannabis / Marijuana
 on break of fern:
@@ -183,7 +189,7 @@ on consume:
 #			kill the player
 
 #--- Command
-command /drugs [<text="">] [<text="">] [<item>]:
+command /drugs [<text="">]:
 	description: Main command associated with the drugs plugin. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
 #	permission message: &8[&aDrugs&8]&r You&4 do not&r have permission to use that drug command. View &a/drugs&r for help. #<--- Unused for now
 	aliases: /drugs
@@ -198,16 +204,18 @@ command /drugs [<text="">] [<text="">] [<item>]:
 			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
 		arg 1 is "list" or "drugs":
 			message "&a-&8-&a-&8-&a-&8[&aDrugs&8]&8-&a-&8-&a-&8-"
-			message "&7List of Drugs:"
+			message "&7List of Drugs:&r"
 			message " - &2Super Fern&r [Break Ferns]&r"
 			message " - &cMagic Mushrooms&r [Break Mushrooms]"
 			message " - &lHappy Powder&r [Break Sugar Cane]"
 			message " - &9Moonshine&r [Click on cauldron with an awkward potion. Must have barley in inventory]"
 			message " - &bPower Crystals&r [Break Ice]"
+			message " - &eGlistening Prickles&r [Break Cactus]"
 			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
 		arg 1 is "check" or "me":
-			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {WeedHigh.%player%}. High on &lHappy Powder&r: {CocaineHigh.%player%}."
-			message "High on &cMagic Mushrooms&r: {ShroomHigh.%player%}. Drunk with &9Moonshine&r: {ShineDrunk.%player%}."
-			message "High on &bPower Crystals&r: {MethHigh.%player%}."
+			message "&8[&aDrugs&8]&r &cError: This command is not functioning right now.&r"
+#			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {WeedHigh.%player%}. High on &lHappy Powder&r: {CocaineHigh.%player%}."
+#			message "High on &cMagic Mushrooms&r: {ShroomHigh.%player%}. Drunk with &9Moonshine&r: {ShineDrunk.%player%}."
+#			message "High on &bPower Crystals&r: {MethHigh.%player%}."
 #		else:
 #			message "&8[&aDrugs&8]&r &4Invalid Command&r"
