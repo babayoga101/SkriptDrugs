@@ -1,23 +1,35 @@
-
-#-----------------#
+#----
 #   WARNING:
-#   ALPHA VERSIONS ARE NOT FOR USAGE OR DISTRIBUTION!
-#-----------------#
+#   Alpha versions maybe be unstable, nonfunctional, or very buggy!
+#----
 
-#SkriptDrugs Version 0.4 Alpha
-#By GrassyMoss
+#----
+#SkriptDrugs
+# Version 0.4 Alpha
+# -By GrassyMoss
+#----
 
-#Note: Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
+#----
+#Dependencies:
+# - Latest version of Skript
+#----
 
-#List of Drugs:
-#Weed = Super Ferns
-#Shrooms = Magic Mushrooms
-#Cocaine = Power Powder
-#Meth = Power Crystals
-#Peyote = Glistening Prickles
-#Moonshine = Moonshine
+#----
+#Notes:
+# - Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
+# - Each drug is given some kind of special formatting or color in the name to ensure that is actually a drug, and to separate it from products re-named by players using anvils.
+# - Will add options section in a future update
+#----
 
-#Each drug is given some kind of special formatting or color in the name to ensure that is actually a drug, and to separate it from products re-named by players using anvils.
+#----
+#List of drugs and their in-game names:
+# - Weed = Super Ferns
+# - Shrooms = Magic Mushrooms
+# - Cocaine = Power Powder
+# - Meth = Power Crystals
+# - Peyote = Glistening Prickles
+# - Moonshine = Moonshine
+#----
 
 
 #--- Weed / Cannabis / Marijuana
