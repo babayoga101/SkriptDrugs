@@ -34,14 +34,14 @@
 
 #--- Weed / Cannabis / Marijuana
 on break of fern:
-	set {FernWeed} to fern named "&2Super Ferns&r"
+	set {drugs.weed} to fern named "&2Super Ferns&r"
 	chance of 8%:
-		give player {FernWeed}
+		give player {drugs.weed}
 		message "&8[&aDrugs&8]&r You found some &2Super Ferns!&r!"
 	
 on rightclick:
-	player is holding {FernWeed}:
-		set {WeedHigh.%player%} to true
+	player is holding {drugs.weed}:
+		set {drugs.high.weed.%player%} to true
 		message "&8[&aDrugs&8]&r You are now high on &2Super Ferns&r!"
 		chance of 50%:
 			apply hunger 1 to the player for 30 seconds
@@ -49,20 +49,20 @@ on rightclick:
 		chance of 50%:
 			apply hunger 4 to the player for 8 seconds
 			apply regeneration 1 to the player for 2 seconds
-		remove {FernWeed} from the player
+		remove {drugs.weed} from the player
 		wait 1 tick
-		set {WeedHigh.%player%} to false
+		set {drugs.high.weed.%player%} to false
 		
 #--- Magic Mushrooms / Shrooms
 on break of mushroom:
-	set {Shroom} to mushroom named "&cMagic Mushrooms"
+	set {drugs.shroom} to mushroom named "&cMagic Mushrooms"
 	chance of 8%:
-		give player {Shroom}
+		give player {drugs.shroom}
 		message "&8[&aDrugs&8]&r You found some &cMagic Mushrooms&r!"
 	
 on rightclick:
-	player is holding {Shroom}:
-		set {ShroomHigh.%player%} to true
+	player is holding {drugs.shroom}:
+		set {drugs.high.shroom.%player%} to true
 		message "&8[&aDrugs&8]&r You are now high on &cMagic Mushrooms&r!"
 		chance of 50%:
 			apply water breathing 1 to the player for 70 seconds
@@ -70,21 +70,21 @@ on rightclick:
 		chance of 50%:
 			apply poison 1 to the player for 15 seconds
 			apply invisibility 1 to the player for 30 seconds
-		remove {Shroom} from the player
+		remove {drugs.shroom} from the player
 		wait 1 tick
-		set {ShroomHigh.%player%} to false
+		set {drugs.high.shroom.%player%} to false
 		
 		
 #--- Cocaine
 on break of sugar cane:
-	set {Cocaine} to sugar named "&lHappy Powder&r"
+	set {drugs.cocaine} to sugar named "&lHappy Powder&r"
 	chance of 8%:
-		give player {Cocaine}
+		give player {drugs.cocaine}
 		message "&8[&aDrugs&8]&r You found some &lHappy Powder&r!"
 	
 on rightclick:
-	player is holding {Cocaine}:
-		set {CocaineHigh.%player%} to true
+	player is holding {drugs.cocaine}:
+		set {drugs.high.cocaine.%player%} to true
 		message "&8[&aDrugs&8]&r You are now high on &lHappy Powder&r!"
 		chance of 50%:
 			apply confusion 3 to the player for 40 seconds
@@ -92,20 +92,20 @@ on rightclick:
 		chance of 50%:
 			apply mining fatigue 2 to the player for 70 seconds
 			apply jump boost 3 to the player for 60 seconds
-		remove {Cocaine} from the player
+		remove {drugs.cocaine} from the player
 		wait 1 tick
-		set {CocaineHigh.%player%} to false
+		set {drugs.high.cocaine.%player%} to false
 
 #--- Meth
 on break of ice:
-	set {Meth} to ice named "&bPower Crystals&r"
+	set {drugs.meth} to ice named "&bPower Crystals&r"
 	chance of 8%:
-		give player {Meth}
+		give player {drugs.meth}
 		message "&8[&aDrugs&8]&r You found some &bPower Crystals&r!"
 	
 on rightclick:
-	player is holding {Meth}:
-		set {MethHigh.%player%} to true
+	player is holding {drugs.meth}:
+		set {drugs.high.meth.%player%} to true
 		message "&8[&aDrugs&8]&r You are now high on &bPower Crystals&r!"
 		chance of 50%:
 			apply speed 2 to the player for 80 seconds
@@ -113,19 +113,19 @@ on rightclick:
 		chance of 50%:
 			apply saturation 3 to the player for 45 seconds
 			apply wither 1 to the player for 8 seconds
-		remove {Meth} from the player
+		remove {drugs.meth} from the player
 		wait 1 tick
-		set {MethHigh.%player%} to false
+		set {drugs.high.meth.%player%} to false
 
 #--- Peyote
 on break of cactus:
-	set {Peyote} to cactus named "&eGlistening Prickles&r"
+	set {drugs.peyote} to cactus named "&eGlistening Prickles&r"
 	chance of 8%:
-		give player {Peyote}
+		give player {drugs.peyote}
 		message "&8[&aDrugs&8]&r You found some &eGlistening Prickles&r"
 	
 on rightclick:
-	player is holding {Peyote}:
+	player is holding {drugs.peyote}:
 		set {PeyoteHigh.%player%} to true
 		message "&8[&aDrugs&8]&r You are now high on &eGlistening Prickles&r"
 		chance of 50%:
@@ -134,7 +134,7 @@ on rightclick:
 		chance of 50%:
 			apply nausea 1 to the player for 40 seconds
 			apply resistance 2 to the player for 25 seconds
-		remove {Peyote} from the player
+		remove {drugs.peyote} from the player
 		wait 1 tick
 		set {PeyoteHigh.%player%} to false
 
@@ -170,10 +170,10 @@ on consume:
 
 #--- Overdose <--- Doesn't work
 #on click:
-#	{WeedHigh.%player%} is true:
-#		{CocaineHigh.%player%} is true:
-#			{ShroomHigh.%player%} is true:
-#				{MethHigh.%player%} is true:
+#	{drugs.high.weed.%player%} is true:
+#		{drugs.high.cocaine.%player%} is true:
+#			{drugs.high.shroom.%player%} is true:
+#				{drugs.high.meth.%player%} is true:
 #					{PeyoteHigh.%player%} is true:
 #						{Drunk.%player%} is true:
 #							chance of 60%
@@ -202,7 +202,8 @@ on consume:
 
 #--- Command
 command /drugs [<text="">]:
-	description: Main command associated with the drugs plugin. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
+	description: Main command associated with the drugs add-on. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
+#	permission: Your permission here
 #	permission message: &8[&aDrugs&8]&r You&4 do not&r have permission to use that drug command. View &a/drugs&r for help. #<--- Unused for now
 	aliases: /drugs
 	trigger:
@@ -226,8 +227,8 @@ command /drugs [<text="">]:
 			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
 		arg 1 is "check" or "me":
 			message "&8[&aDrugs&8]&r &cError: This command is not functioning right now.&r"
-#			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {WeedHigh.%player%}. High on &lHappy Powder&r: {CocaineHigh.%player%}."
-#			message "High on &cMagic Mushrooms&r: {ShroomHigh.%player%}. Drunk with &9Moonshine&r: {ShineDrunk.%player%}."
-#			message "High on &bPower Crystals&r: {MethHigh.%player%}."
+#			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {drugs.high.weed.%player%}. High on &lHappy Powder&r: {drugs.high.cocaine.%player%}."
+#			message "High on &cMagic Mushrooms&r: {drugs.high.shroom.%player%}. Drunk with &9Moonshine&r: {ShineDrunk.%player%}."
+#			message "High on &bPower Crystals&r: {drugs.high.meth.%player%}."
 #		else:
 #			message "&8[&aDrugs&8]&r &4Invalid Command&r"
