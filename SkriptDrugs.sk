@@ -6,7 +6,7 @@
 #----
 #SkriptDrugs
 # Version 0.4 Alpha
-# -By GrassyMoss
+# - By GrassyMoss
 #----
 
 #----
@@ -18,7 +18,7 @@
 #Notes:
 # - Variables are used to store the item information and name to be sure that you cannot get high off of all of those items, only the ones that are specifically designated drugs.
 # - Each drug is given some kind of special formatting or color in the name to ensure that is actually a drug, and to separate it from products re-named by players using anvils.
-# - Will add options section in a future update
+# - Will add options section in a future update to help allow server admins to customize functionality. 
 #----
 
 #----
@@ -41,17 +41,23 @@ on break of fern:
 	
 on rightclick:
 	player is holding {drugs.weed}:
-		set {drugs.high.weed.%player%} to true
+		add 1 to {drugs.high.%player%}
 		message "&8[&aDrugs&8]&r You are now high on &2Super Ferns&r!"
 		chance of 50%:
-			apply hunger 1 to the player for 30 seconds
-			apply absorption 1 to the player for 15 seconds
-		chance of 50%:
-			apply hunger 4 to the player for 8 seconds
-			apply regeneration 1 to the player for 2 seconds
-		remove {drugs.weed} from the player
-		wait 1 tick
-		set {drugs.high.weed.%player%} to false
+			apply hunger 1 to the player for 60 seconds
+			apply absorption 1 to the player for 35 seconds
+			remove {drugs.weed} from the player
+			wait 60 seconds
+			subtract 1 from {drugs.high.%player%}
+			exit
+		else:
+			apply hunger 4 to the player for 30 seconds
+			apply regeneration 1 to the player for 8 seconds
+			remove {drugs.weed} from the player
+			wait 30 seconds
+			subtract 1 from {drugs.high.%player%}
+			exit
+			
 		
 #--- Magic Mushrooms / Shrooms
 on break of mushroom:
@@ -62,12 +68,12 @@ on break of mushroom:
 	
 on rightclick:
 	player is holding {drugs.shroom}:
-		set {drugs.high.shroom.%player%} to true
+		add 1 to {drugs.high.%player%}
 		message "&8[&aDrugs&8]&r You are now high on &cMagic Mushrooms&r!"
 		chance of 50%:
 			apply water breathing 1 to the player for 70 seconds
 			apply blindness 1 to the player for 65 seconds
-		chance of 50%:
+		else:
 			apply poison 1 to the player for 15 seconds
 			apply invisibility 1 to the player for 30 seconds
 		remove {drugs.shroom} from the player
@@ -84,7 +90,7 @@ on break of sugar cane:
 	
 on rightclick:
 	player is holding {drugs.cocaine}:
-		set {drugs.high.cocaine.%player%} to true
+		add 1 to {drugs.high.%player%}
 		message "&8[&aDrugs&8]&r You are now high on &lHappy Powder&r!"
 		chance of 50%:
 			apply confusion 3 to the player for 40 seconds
@@ -105,7 +111,7 @@ on break of ice:
 	
 on rightclick:
 	player is holding {drugs.meth}:
-		set {drugs.high.meth.%player%} to true
+		add 1 to {drugs.high.%player%}
 		message "&8[&aDrugs&8]&r You are now high on &bPower Crystals&r!"
 		chance of 50%:
 			apply speed 2 to the player for 80 seconds
@@ -126,7 +132,7 @@ on break of cactus:
 	
 on rightclick:
 	player is holding {drugs.peyote}:
-		set {PeyoteHigh.%player%} to true
+		add 1 to {drugs.high.%player%}
 		message "&8[&aDrugs&8]&r You are now high on &eGlistening Prickles&r"
 		chance of 50%:
 			apply blindness 1 to the player for 45 seconds
@@ -156,7 +162,7 @@ on click on a cauldron holding awkward potion:
 	
 on consume:
 	item is {Moonshine}:
-		set {Drunk.%player%} to true
+		add 1 to {drugs.high.%player%}
 		message "&8[&aDrugs&8]&r You are now drunk with &9Moonshine&r!"
 		chance of 50%:
 			apply nausea 2 to the player for 60 seconds
@@ -168,7 +174,7 @@ on consume:
 		wait 1 tick
 		set {Drunk.%player%} to false
 
-#--- Overdose <--- Doesn't work
+#--- Overdose <--- Doesn't work yet
 #on click:
 #	{drugs.high.weed.%player%} is true:
 #		{drugs.high.cocaine.%player%} is true:
@@ -202,33 +208,35 @@ on consume:
 
 #--- Command
 command /drugs [<text="">]:
-	description: Main command associated with the drugs add-on. Allows you to view help and info, along with the ability to create new drugs, if you have permissions.
+	description: Main command associated with the drugs add-on. Allows you to view help and info, along with the ability to create new drugs, if you have permission.
 #	permission: Your permission here
 #	permission message: &8[&aDrugs&8]&r You&4 do not&r have permission to use that drug command. View &a/drugs&r for help. #<--- Unused for now
-	aliases: /drugs
+	aliases: /drug
 	trigger:
-		arg 1 is "" or "help":
-			message "&a-&8-&a-&8-&a-&8[&aDrugs&8]&8-&a-&8-&a-&8-"
-			message "  "
-			message "&7 Topic:&r &lDrugs Help&r"
-			message "&7 Link:&r   &b> > >&n http://wiki.cobalt-mc.com/drugs &r&b< < <" #Wiki link doesn't work, write wiki page soon.
-			message "  "
-			message "&7&oClick on the blue link above to view the topic."
-			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
-		arg 1 is "list" or "drugs":
-			message "&a-&8-&a-&8-&a-&8[&aDrugs&8]&8-&a-&8-&a-&8-"
-			message "&7List of Drugs:&r"
-			message " - &2Super Fern&r [Break Ferns]&r"
-			message " - &cMagic Mushrooms&r [Break Mushrooms]"
-			message " - &lHappy Powder&r [Break Sugar Cane]"
-			message " - &9Moonshine&r [Click on cauldron with an awkward potion. Must have barley in inventory]"
-			message " - &bPower Crystals&r [Break Ice]"
-			message " - &eGlistening Prickles&r [Break Cactus]"
-			message "&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-&a-&8-"
-		arg 1 is "check" or "me":
+		if arg 1 is "", "cmd", "command", "about", "version" or "help":
+			message "&a-&8-&a-&8[&a&lDrugs Help&8]&8-&a-&8-"
+			send "No help here, sorry!"
+			message "&a-&8-&a-&8-"
+			exit
+		if arg 1 is "list" or "drugs":
+			message "&a-&8-&a-&8[&a&l List of drugs&8]&8-&a-&8-"
+			message " - &2Super Fern&7 [Break Ferns]&r"
+			message " "
+			message " - &cMagic Mushrooms&7 [Break Mushrooms]"
+			message " "
+			message " - &lHappy Powder&7 [Break Sugar Cane]"
+			message " "
+			message " - &9Moonshine&7 [Click on cauldron with an awkward potion. Must have barley in inventory]"
+			message " "
+			message " - &bPower Crystals&7 [Break Ice]"
+			message " "
+			message " - &eGlistening Prickles&7 [Break Cactus]"
+			message "&a-&8-&a-&8-"
+			exit
+		if arg 1 is "check", "over", "overdose", "dose" or "me":
 			message "&8[&aDrugs&8]&r &cError: This command is not functioning right now.&r"
-#			message "&8[&aDrugs&8]&r High on &2Super Ferns&r: {drugs.high.weed.%player%}. High on &lHappy Powder&r: {drugs.high.cocaine.%player%}."
-#			message "High on &cMagic Mushrooms&r: {drugs.high.shroom.%player%}. Drunk with &9Moonshine&r: {ShineDrunk.%player%}."
-#			message "High on &bPower Crystals&r: {drugs.high.meth.%player%}."
-#		else:
-#			message "&8[&aDrugs&8]&r &4Invalid Command&r"
+			exit
+		else:
+			message "&8[&aDrugs&8]&4 Error:&c Invalid command or arguments!"
+			exit
+			
